@@ -54,6 +54,8 @@ public class Book {
 	@Column(nullable = false)
 	private boolean avaliableEbook;
 	
+	// i seguenti attributi non hanno nullable e usano le reference come tipo.
+	// questo permette di creare oggetti con questi valori null
 	@Column
 	private Integer avaliableCopies;
 	
