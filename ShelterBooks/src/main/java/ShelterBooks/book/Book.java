@@ -51,4 +51,12 @@ public class Book {
 	@Enumerated(EnumType.STRING)
 	private BookGenre genre;
 	
+	@Column(nullable = false)
+	private boolean avaliableEbook;
+	
+	@Column
+	private Integer avaliableCopies;
+	
+	@Column
+	private double ebookSize;
 }
