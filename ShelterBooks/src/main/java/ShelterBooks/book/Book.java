@@ -58,5 +58,5 @@ public class Book {
 	private Integer avaliableCopies;
 	
 	@Column
-	private double ebookSize;
+	private Double ebookSize;
 }
