@@ -1,5 +1,6 @@
 package ShelterBooks.book;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
@@ -52,7 +53,12 @@ public class Book {
 	private BookGenre genre;
 	
 	@Column(nullable = false)
-	private boolean avaliableEbook;
+	@Enumerated(EnumType.STRING)
+	private EbookStatus avaliableEbook;
+	
+	// attributi inizializzati dopo l'inserimento dei dati
+	@Column(nullable = false)
+	private LocalDate insertionDate;
 	
 	// i seguenti attributi non hanno nullable e usano le reference come tipo.
 	// questo permette di creare oggetti con questi valori null
@@ -61,4 +67,7 @@ public class Book {
 	
 	@Column
 	private Double ebookSize;
+	
+	@Column
+	private Double ebookPrice;
 }

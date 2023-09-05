@@ -20,8 +20,10 @@ public class BookPayload {
 	private int publicationYear;
 	@Enumerated(EnumType.STRING)
 	private BookGenre genre;
-	private boolean avaliableEbook;
+	@Enumerated(EnumType.STRING)
+	private EbookStatus avaliableEbook;
 	private Integer avaliableCopies;
 	private Double ebookSize;
+	private Double ebookPrice;
 	
 }
