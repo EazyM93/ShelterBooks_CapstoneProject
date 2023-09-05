@@ -30,9 +30,24 @@ public class BookController {
 	@GetMapping("")
 	public Page<Book> findAll(
 			@RequestParam(defaultValue = "0") int pageNumber,
-			@RequestParam(defaultValue = "insertionDate") String order
+			@RequestParam(defaultValue = "insertionDate") String sort
 	){
-		return bookService.findAll(pageNumber, order);
+		return bookService.findAll(pageNumber, sort);
 	}
 	
+	//------------------------------------------------------------------filter books
+	@GetMapping("/filter")
+	public Page<Book> filters(
+			@RequestParam(required = false) String title,
+			@RequestParam(required = false) String author,
+			@RequestParam(required = false) String publisher,
+			@RequestParam(required = false) Double priceMin,
+			@RequestParam(required = false) Double priceMax,
+			@RequestParam(required = false) BookGenre genre,
+			@RequestParam(defaultValue = "0") int pageNumber,
+			@RequestParam(defaultValue = "title") String sort
+	){
+		return bookService.filterBooks(title, author, publisher,
+				priceMin, priceMax, genre, pageNumber, sort);
+	}
 }

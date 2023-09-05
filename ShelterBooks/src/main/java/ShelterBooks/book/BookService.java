@@ -39,9 +39,21 @@ public class BookService {
 	}
 	
 	//-------------------------------------------------------------------------order book
-	public Page<Book> findAll(int pageNumber, String order){
-		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(order));
+	public Page<Book> findAll(int pageNumber, String sort){
+		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
 		return bookRepository.findAll(page);
 	}
 	
+	//-------------------------------------------------------------------------filter book
+	public Page<Book> filterBooks(String title, String author,
+			String publisher, Double priceMin, Double priceMax,
+			BookGenre genre, int pageNumber, String sort){
+		
+		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
+		
+		String titleCapitalized = title.substring(0, 1).toUpperCase() + title.substring(1).toLowerCase();
+		
+		return bookRepository.searchBook(titleCapitalized, author, publisher, priceMin, priceMax, genre, page);
+		
+	} 
 }
