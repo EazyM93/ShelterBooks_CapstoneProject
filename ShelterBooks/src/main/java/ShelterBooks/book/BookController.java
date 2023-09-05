@@ -46,7 +46,8 @@ public class BookController {
 			@RequestParam(required = false) BookGenre genre,
 			@RequestParam(defaultValue = "0") int pageNumber,
 			@RequestParam(defaultValue = "title") String sort
-	){
+	){	
+		
 		return bookService.filterBooks(title, author, publisher,
 				priceMin, priceMax, genre, pageNumber, sort);
 	}

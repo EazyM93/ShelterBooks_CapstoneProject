@@ -51,9 +51,7 @@ public class BookService {
 		
 		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
 		
-		String titleCapitalized = title.substring(0, 1).toUpperCase() + title.substring(1).toLowerCase();
-		
-		return bookRepository.searchBook(titleCapitalized, author, publisher, priceMin, priceMax, genre, page);
+		return bookRepository.searchBook(title, author, publisher, priceMin, priceMax, genre, page);
 		
 	} 
 }
