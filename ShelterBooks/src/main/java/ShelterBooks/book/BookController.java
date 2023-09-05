@@ -18,7 +18,7 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
-	//--------------------------------------------------------create book
+	//------------------------------------------------------------------create book
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book createBook(@RequestBody BookPayload body) {
@@ -26,7 +26,7 @@ public class BookController {
 		return createdBook;
 	}
 	
-	//--------------------------------------------------------get all books
+	//------------------------------------------------------------------get all books & order
 	@GetMapping("")
 	public Page<Book> findAll(
 			@RequestParam(defaultValue = "0") int pageNumber,
