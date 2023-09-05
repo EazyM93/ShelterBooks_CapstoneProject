@@ -33,6 +33,9 @@ public class Book {
 	@Column(nullable = false, unique = true)
 	private String title;
 	
+	@Column(nullable = false, unique = true)
+	private String coverLink;
+	
 	@Column(nullable = false)
 	private String author;
 	
@@ -54,7 +57,7 @@ public class Book {
 	
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
-	private EbookStatus avaliableEbook;
+	private EbookStatus availableEbook;
 	
 	// attributi inizializzati dopo l'inserimento dei dati
 	@Column(nullable = false)
@@ -63,10 +66,10 @@ public class Book {
 	// i seguenti attributi non hanno nullable e usano le reference come tipo.
 	// questo permette di creare oggetti con questi valori null
 	@Column
-	private Integer avaliableCopies;
+	private Integer availableCopies;
 	
 	@Column
-	private Double ebookSize;
+	private Integer ebookSize;
 	
 	@Column
 	private Double ebookPrice;

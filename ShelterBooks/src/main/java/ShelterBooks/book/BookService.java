@@ -21,15 +21,16 @@ public class BookService {
 		Book newBook = Book.builder()
 				.isbn(body.getIsbn())
 				.title(body.getTitle())
+				.coverLink(body.getCoverLink())
 				.author(body.getAuthor())
 				.publisher(body.getPublisher())
 				.pages(body.getPages())
 				.price(body.getPrice())
 				.publicationYear(body.getPublicationYear())
 				.genre(body.getGenre())
-				.avaliableEbook(body.getAvaliableEbook())
+				.availableEbook(body.getAvailableEbook())
 				.insertionDate(LocalDate.now()) // generato alla creazione
-				.avaliableCopies(body.getAvaliableCopies())
+				.availableCopies(body.getAvailableCopies())
 				.ebookSize(body.getEbookSize())
 				.ebookPrice(body.getEbookPrice())
 				.build();

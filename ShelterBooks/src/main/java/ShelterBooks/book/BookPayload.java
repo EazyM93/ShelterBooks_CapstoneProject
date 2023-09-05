@@ -13,6 +13,7 @@ public class BookPayload {
 
 	private String isbn;
 	private String title;
+	private String coverLink;
 	private String author;
 	private String publisher;
 	private int pages;
@@ -21,9 +22,9 @@ public class BookPayload {
 	@Enumerated(EnumType.STRING)
 	private BookGenre genre;
 	@Enumerated(EnumType.STRING)
-	private EbookStatus avaliableEbook;
-	private Integer avaliableCopies;
-	private Double ebookSize;
+	private EbookStatus availableEbook;
+	private Integer availableCopies;
+	private Integer ebookSize;
 	private Double ebookPrice;
 	
 }
