@@ -16,12 +16,12 @@ public interface BookRepository extends JpaRepository<Book, UUID>{
 	Optional<Book> findById(UUID idBook);
 	
 	@Query("SELECT b FROM Book b WHERE "
-			+ "(:title IS NULL OR LOWER(b.title) LIKE LOWER(%:title%)) AND "
-			+ "(:author IS NULL OR LOWER(b.author) LIKE LOWER(%:author%)) AND "
-			+ "(:publisher IS NULL OR b.publisher = :publisher) AND "
+			+ "(:title IS NULL OR LOWER(b.title) = LOWER(:title) OR b.title ILIKE %:title%) AND "
+			+ "(:author IS NULL OR LOWER(b.author) = LOWER(:author) OR b.author ILIKE %:author%) AND "
+			+ "(:publisher IS NULL OR LOWER(b.publisher) = LOWER(:publisher) OR b.publisher ILIKE %:publisher%) AND "
 			+ "(:priceMin IS NULL OR b.price >= :priceMin) AND "
 			+ "(:priceMax IS NULL OR b.price <= :priceMax) AND "
-			+ "(:genre IS NULL OR b.genre >= :genre) "
+			+ "(:genre IS NULL OR b.genre = :genre) "
 			+ "ORDER BY b.title")
 	Page<Book> searchBook(
 			@Param("title") String title,
