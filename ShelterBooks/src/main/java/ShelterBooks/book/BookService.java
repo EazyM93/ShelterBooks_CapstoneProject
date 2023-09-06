@@ -51,7 +51,10 @@ public class BookService {
 		
 		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
 		
-		return bookRepository.searchBook(title, author, publisher, priceMin, priceMax, genre, page);
+		return bookRepository.searchBook(title, author, publisher,
+				priceMin, priceMax, genre, page);
 		
 	} 
+	
+	
 }
