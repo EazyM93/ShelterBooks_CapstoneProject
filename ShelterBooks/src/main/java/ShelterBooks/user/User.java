@@ -18,6 +18,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -57,6 +58,7 @@ public class User implements UserDetails{
 	
 	// lista libri acquistati
 	@OneToMany
+	@JoinTable(name = "UserPurchasedBooks")
 	@Builder.Default
 	private List<Book> purchasedBooks = new ArrayList<>();
 
