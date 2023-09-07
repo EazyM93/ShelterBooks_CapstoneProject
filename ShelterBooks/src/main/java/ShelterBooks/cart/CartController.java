@@ -33,14 +33,14 @@ public class CartController {
 	
 	// --------------------------------------------------------add book to cart
 	@PostMapping("/addBook/{idBook}")
-	public void addBook(@PathVariable UUID idBook) {
-		cartService.addBook(findByCurrentUser(), bookService.findById(idBook));
+	public Cart addBook(@PathVariable UUID idBook) {
+		return cartService.addBook(findByCurrentUser(), bookService.findById(idBook));
 	}
 	
 	// --------------------------------------------------------add book to cart
 	@PostMapping("/removeBook/{idBook}")
-	public void removeBook(@PathVariable UUID idBook) {
-		cartService.removeBook(findByCurrentUser(), bookService.findById(idBook));
+	public Cart removeBook(@PathVariable UUID idBook) {
+		return cartService.removeBook(findByCurrentUser(), bookService.findById(idBook));
 	}
 	
 }

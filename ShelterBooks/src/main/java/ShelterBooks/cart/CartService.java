@@ -1,7 +1,8 @@
 package ShelterBooks.cart;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class CartService {
 		
 		Cart newCart = Cart.builder()
 				.user(user)
-				.books(new ArrayList<>())
+				.booksWithQuantity(new HashMap<>())
 				.build();
 		
 		return cartRepository.save(newCart);
@@ -56,15 +57,37 @@ public class CartService {
 	}
 	
 	// --------------------------------------------------------add book to cart
-	public void addBook(Cart currentCart, Book book) {
-		currentCart.getBooks().add(book);
-		cartRepository.save(currentCart);
+	public Cart addBook(Cart currentCart, Book book) {
+		
+		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
+		
+		for(Map.Entry<Book, Integer> entry: currentMap.entrySet()) {
+			
+			if(entry.getKey().getIdBook().equals(book.getIdBook())) {
+				entry.setValue(entry.getValue() + 1);
+				return cartRepository.save(currentCart);
+			}
+			
+		}
+		
+		currentMap.put(book, 1);
+		return cartRepository.save(currentCart);
+		
 	}
 	
 	// --------------------------------------------------------remove book from cart
-	public void removeBook(Cart currentCart, Book book) {
-		currentCart.getBooks().remove(book);
-		cartRepository.save(currentCart);
+	public Cart removeBook(Cart currentCart, Book book) {
+		
+		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
+		
+		if(currentMap.get(book) == 1) {
+			currentMap.remove(book);
+			return cartRepository.save(currentCart);
+		}
+			
+		currentMap.put(book, currentMap.get(book) - 1);
+		return cartRepository.save(currentCart);
+		
 	}
 
 }
