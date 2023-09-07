@@ -27,6 +27,12 @@ public class UserController {
 		return us.getUsers();
 	}
 	
+	// --------------------------------------------------------get current user
+	@GetMapping("/getCurrent")
+	public User getCurrentUser() {
+		return us.getCurrentUser();
+	}
+	
 	// --------------------------------------------------------find user by id
 	@GetMapping("/idUser/{idUser}")
 	public User findById(@PathVariable UUID idUser) {

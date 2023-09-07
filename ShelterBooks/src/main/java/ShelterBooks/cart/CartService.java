@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ShelterBooks.book.Book;
 import ShelterBooks.user.User;
 import ShelterBooks.user.exceptions.NotFoundException;
 
@@ -39,12 +40,12 @@ public class CartService {
 	}
 	
 	// --------------------------------------------------------find cart by user id
-	public Cart findCartByUserId(UUID idUser){
+	public Cart findByCurrentUser(User currentUser){
 		
 		UUID idCart = null;
 				
 		for(Cart c : getCarts()) {
-			if(c.getUser().getIdUser().equals(idUser)) {
+			if(c.getUser().getIdUser().equals(currentUser.getIdUser())) {
 				idCart = c.getIdCart();
 				break;
 			}
@@ -53,4 +54,11 @@ public class CartService {
 		return findById(idCart);
 		
 	}
+	
+	// --------------------------------------------------------add book to cart
+	public void addBook(Cart currentCart, Book book) {
+		currentCart.getBooks().add(book);
+		cartRepository.save(currentCart);
+	}
+	
 }

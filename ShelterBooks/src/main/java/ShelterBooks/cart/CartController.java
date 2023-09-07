@@ -5,9 +5,12 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ShelterBooks.book.BookService;
+import ShelterBooks.user.UserService;
 
 @RestController
 @RequestMapping("/carts")
@@ -16,14 +19,22 @@ public class CartController {
 	@Autowired
 	CartService cartService;
 	
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	BookService bookService;
+	
 	// --------------------------------------------------------find cart by user id
-	@GetMapping("/{idUser}")
-	public Cart findById(@PathVariable UUID idUser) {
-		return cartService.findCartByUserId(idUser);		
+	@GetMapping("/currentUser")
+	public Cart findByCurrentUser() {
+		return cartService.findByCurrentUser(userService.getCurrentUser());		
 	}
 	
-	// --------------------------------------------------------find cart by user id
-	//@PostMapping("/addBook/")
-	
+	// --------------------------------------------------------add book to cart
+	@PostMapping("/addBook/{idBook}")
+	public void addBook(@PathVariable UUID idBook) {
+		cartService.addBook(findByCurrentUser(), bookService.findById(idBook));
+	}
 	
 }

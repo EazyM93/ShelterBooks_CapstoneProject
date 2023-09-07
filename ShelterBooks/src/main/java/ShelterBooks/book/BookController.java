@@ -22,8 +22,7 @@ public class BookController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book createBook(@RequestBody BookPayload body) {
-		Book createdBook = bookService.saveBook(body);
-		return createdBook;
+		return bookService.saveBook(body);
 	}
 	
 	//------------------------------------------------------------------get all books & order

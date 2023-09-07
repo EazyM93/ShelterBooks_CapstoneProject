@@ -1,6 +1,7 @@
 package ShelterBooks.book;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -42,6 +43,11 @@ public class BookService {
 	public Page<Book> findAll(int pageNumber, String sort){
 		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
 		return bookRepository.findAll(page);
+	}
+	
+	//-------------------------------------------------------------------------find by id
+	public Book findById(UUID idBook){
+		return bookRepository.findById(idBook).get();
 	}
 	
 	//-------------------------------------------------------------------------filter book
