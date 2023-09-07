@@ -14,7 +14,7 @@ public class CartService {
 	CartRepository cartRepository;
 	
 	//-------------------------------------------------------------------------save cart
-	public Cart saveCart(User user){
+	public Cart createCart(User user){
 		
 		Cart newCart = Cart.builder()
 				.user(user)
