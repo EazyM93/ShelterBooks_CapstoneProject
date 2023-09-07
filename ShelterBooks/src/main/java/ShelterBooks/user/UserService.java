@@ -34,9 +34,11 @@ public class UserService {
 				.role(UserRole.USER)
 				.build();
 		
+		ur.save(newUser);
+		
 		cs.createCart(newUser);
 		
-		return ur.save(newUser);
+		return newUser;
 		
 	}
 	
