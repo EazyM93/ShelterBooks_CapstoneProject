@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import ShelterBooks.cart.CartService;
@@ -45,6 +47,14 @@ public class UserService {
 	// --------------------------------------------------------get all users
 	public List<User> getUsers(){
 		return ur.findAll();
+	}
+	
+	// --------------------------------------------------------get current user
+	public User getCurrentUser() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentUserName = authentication.getName();
+		return ur.findByEmail(currentUserName)
+				.orElseThrow(() -> new NotFoundException("Utente con email " + currentUserName + " non trovato"));
 	}
 	
 	// --------------------------------------------------------get user by id
