@@ -28,14 +28,14 @@ public class UserController {
 	}
 	
 	// --------------------------------------------------------find user by id
-	@GetMapping("/{idUser}")
+	@GetMapping("/idUser/{idUser}")
 	public User findById(@PathVariable UUID idUser) {
 		return us.findById(idUser);
 	}
 	
 	// --------------------------------------------------------find user by email
-	@GetMapping("/{email}")
-	public User findById(@PathVariable String email) {
+	@GetMapping("/email/{email}")
+	public User findByEmail(@PathVariable String email) {
 		return us.findByEmail(email);
 	}
 	
