@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ShelterBooks.cart.CartRepository;
 import ShelterBooks.user.exceptions.BadRequestException;
 import ShelterBooks.user.exceptions.NotFoundException;
 
@@ -14,6 +15,9 @@ public class UserService {
 
 	@Autowired
 	UserRepository ur;
+	
+	@Autowired
+	CartRepository cr;
 	
 	// --------------------------------------------------------user save
 	public User saveUser(UserPayload body) {
