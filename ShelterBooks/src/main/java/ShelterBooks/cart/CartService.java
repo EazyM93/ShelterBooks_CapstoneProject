@@ -61,4 +61,10 @@ public class CartService {
 		cartRepository.save(currentCart);
 	}
 	
+	// --------------------------------------------------------remove book from cart
+	public void removeBook(Cart currentCart, Book book) {
+		currentCart.getBooks().remove(book);
+		cartRepository.save(currentCart);
+	}
+
 }

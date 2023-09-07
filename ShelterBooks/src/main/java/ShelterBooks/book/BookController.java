@@ -1,5 +1,7 @@
 package ShelterBooks.book;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -32,6 +34,15 @@ public class BookController {
 			@RequestParam(defaultValue = "insertionDate") String sort
 	){
 		return bookService.findAll(pageNumber, sort);
+	}
+	
+	//------------------------------------------------------------------get all books & order
+	@PostMapping("/updateCopies")
+	public Book updateCopies(
+			@RequestParam UUID idBook,
+			@RequestParam int numberCopies
+			) {
+		return bookService.updateCopies(idBook, numberCopies);
 	}
 	
 	//------------------------------------------------------------------filter books
