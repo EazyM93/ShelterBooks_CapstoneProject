@@ -26,7 +26,7 @@ public class Cart {
 
 	@Id
 	@GeneratedValue
-	private UUID idBook;
+	private UUID idCart;
 	
 	@OneToOne
 	private User user;

@@ -1,7 +1,7 @@
 package ShelterBooks.cart;
 
-import ShelterBooks.book.BookGenre;
-import ShelterBooks.book.EbookStatus;
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,4 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CartPayload {
 
+	private UUID idUser;
+	
 }
