@@ -1,5 +1,6 @@
 package ShelterBooks.cart;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ShelterBooks.book.Book;
+import ShelterBooks.book.BookService;
 import ShelterBooks.user.User;
+import ShelterBooks.user.UserRepository;
 import ShelterBooks.user.exceptions.NotFoundException;
 
 @Service
@@ -17,6 +20,12 @@ public class CartService {
 
 	@Autowired
 	CartRepository cartRepository;
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	BookService bookService;
 	
 	//-------------------------------------------------------------------------save cart
 	public Cart createCart(User user){
@@ -98,21 +107,67 @@ public class CartService {
 	}
 
 	// --------------------------------------------------------clear cart
-	public Cart clearCart(Cart currentCart) {
+	public Cart clearCart(User user) {
 		
+		// current cart of the user
+		Cart currentCart = findByCurrentUser(user);
+		
+		// current cart's elements
 		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
 		
+		// current books list of the store
+		List<Book> bookList = bookService.getBooks();
+		
+		// empty list to store all the matches to be add to the user
+		List<Book> booksToAdd = new ArrayList<>();
+		
+		// current list of purchased books by the user
+		List <Book> userBooks = user.getPurchasedBooks();
+		
+		// loop current cart
 		for(Map.Entry<Book, Integer> entry: currentMap.entrySet()) {
 			
-			// update number of copies after selling
+			UUID actualBook = entry.getKey().getIdBook();
+			int actualQuantity = entry.getValue();
 			
-			// update number all selled copies of the book
+			// loop all books in storage
+			for(Book book : bookList) {
+				
+				if(book.getIdBook().equals(actualBook)){
+					
+					// update number of available copies after selling
+					book.setAvailableCopies(book.getAvailableCopies() - actualQuantity);
 			
-			// updadate user purchased books
+					// update number all selled copies of the book
+					book.setAllSelledCopies(book.getAllSelledCopies() + actualQuantity);
 			
+					// updadate user purchased books only if it is not present in the list
+					boolean idMatch = false;
+					
+					for(Book b : userBooks) {
+						if(!book.getIdBook().equals(b.getIdBook())) {
+							idMatch = true;
+							break;
+						}	
+					}
+		
+					if(!idMatch)
+						booksToAdd.add(book);
+					
+					// stop inner loop after finding the match and restart with another element
+					break;
+				}
+			}
 		}
 		
-		// clear the cart
+		// add books and save user 
+		userBooks.addAll(booksToAdd);
+		userRepository.save(user);
+		
+		// clear cart
+		currentMap.clear();
+		return cartRepository.save(currentCart);
+		
 	}
 	
 }

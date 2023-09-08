@@ -46,7 +46,7 @@ public class CartController {
 	// --------------------------------------------------------add book to cart
 	@PostMapping("/clearCart")
 	public Cart clearCart() {
-		return cartService.clearCart(findByCurrentUser());
+		return cartService.clearCart(userService.getCurrentUser());
 	}
 	
 }

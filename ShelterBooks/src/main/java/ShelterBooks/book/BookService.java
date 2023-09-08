@@ -1,6 +1,7 @@
 package ShelterBooks.book;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class BookService {
 				.availableCopies(body.getAvailableCopies())
 				.ebookSize(body.getEbookSize())
 				.ebookPrice(body.getEbookPrice())
+				.allSelledCopies(0)
 				.build();
 		
 		return bookRepository.save(newBook);
@@ -45,6 +47,10 @@ public class BookService {
 		return bookRepository.findAll(page);
 	}
 	
+	//-------------------------------------------------------------------------find all books and get simple list
+	public List<Book> getBooks(){
+		return bookRepository.findAll();
+	}
 	//-------------------------------------------------------------------------find by id
 	public Book findById(UUID idBook){
 		return bookRepository.findById(idBook).get();
