@@ -44,7 +44,8 @@ public class CartService {
 	public Cart findByCurrentUser(User currentUser){
 		
 		UUID idCart = null;
-				
+		
+		// extract the idCart of the current user through idUser
 		for(Cart c : getCarts()) {
 			if(c.getUser().getIdUser().equals(currentUser.getIdUser())) {
 				idCart = c.getIdCart();
@@ -61,8 +62,11 @@ public class CartService {
 		
 		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
 		
+		// loops all the elemento of the HashMap
 		for(Map.Entry<Book, Integer> entry: currentMap.entrySet()) {
 			
+			// check if the idBook passed is already in the cart by key Book
+			// increase the quantity of copies by one if true
 			if(entry.getKey().getIdBook().equals(book.getIdBook())) {
 				entry.setValue(entry.getValue() + 1);
 				return cartRepository.save(currentCart);
@@ -70,6 +74,7 @@ public class CartService {
 			
 		}
 		
+		// increase of one the copies of the same book in the cart
 		currentMap.put(book, 1);
 		return cartRepository.save(currentCart);
 		
@@ -80,11 +85,13 @@ public class CartService {
 		
 		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
 		
+		// check if there is only one copy left in cart, if true it removes the book
 		if(currentMap.get(book) == 1) {
 			currentMap.remove(book);
 			return cartRepository.save(currentCart);
 		}
-			
+		
+		// decrease of one the copies of the same book in the cart
 		currentMap.put(book, currentMap.get(book) - 1);
 		return cartRepository.save(currentCart);
 		
