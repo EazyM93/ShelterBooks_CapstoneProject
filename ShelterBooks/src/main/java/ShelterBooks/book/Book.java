@@ -74,4 +74,7 @@ public class Book {
 	@Column
 	private Double ebookPrice;
 	
+	@Column
+	private Integer allSelledCopies;
+	
 }
