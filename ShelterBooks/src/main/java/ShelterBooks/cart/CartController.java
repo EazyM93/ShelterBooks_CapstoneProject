@@ -43,4 +43,10 @@ public class CartController {
 		return cartService.removeBook(findByCurrentUser(), bookService.findById(idBook));
 	}
 	
+	// --------------------------------------------------------add book to cart
+	@PostMapping("/clearCart")
+	public Cart clearCart() {
+		return cartService.clearCart(findByCurrentUser());
+	}
+	
 }

@@ -60,6 +60,17 @@ public class BookService {
 		return bookRepository.save(currentBook);
 	}
 	
+	//-------------------------------------------------------------------------modify copies
+	public void updateSelledCopies(UUID idBook, int selledCopies) {
+		
+		Book currentBook = bookRepository.findById(idBook).get();
+		
+		currentBook.setAllSelledCopies(currentBook.getAllSelledCopies() + selledCopies);
+		
+		bookRepository.save(currentBook);
+		
+	}
+	
 	//-------------------------------------------------------------------------filter book
 	public Page<Book> filterBooks(String title, String author,
 			String publisher, Double priceMin, Double priceMax,

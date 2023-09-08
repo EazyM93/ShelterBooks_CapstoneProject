@@ -97,4 +97,22 @@ public class CartService {
 		
 	}
 
+	// --------------------------------------------------------clear cart
+	public Cart clearCart(Cart currentCart) {
+		
+		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
+		
+		for(Map.Entry<Book, Integer> entry: currentMap.entrySet()) {
+			
+			// update number of copies after selling
+			
+			// update number all selled copies of the book
+			
+			// updadate user purchased books
+			
+		}
+		
+		// clear the cart
+	}
+	
 }
