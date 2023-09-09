@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ public class UserController {
 	
 	// --------------------------------------------------------get all users
 	@GetMapping("")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<User> getUser(){
 		return us.getUsers();
 	}
@@ -36,12 +38,14 @@ public class UserController {
 	
 	// --------------------------------------------------------find user by id
 	@GetMapping("/idUser/{idUser}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public User findById(@PathVariable UUID idUser) {
 		return us.findById(idUser);
 	}
 	
 	// --------------------------------------------------------find user by email
 	@GetMapping("/email/{email}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public User findByEmail(@PathVariable String email) {
 		return us.findByEmail(email);
 	}

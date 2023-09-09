@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ public class BookController {
 	
 	//------------------------------------------------------------------create book
 	@PostMapping
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book createBook(@RequestBody BookPayload body) {
 		return bookService.saveBook(body);
@@ -38,6 +40,7 @@ public class BookController {
 	
 	//------------------------------------------------------------------get all books & order
 	@PostMapping("/updateCopies")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public Book updateCopies(
 			@RequestParam UUID idBook,
 			@RequestParam int numberCopies
