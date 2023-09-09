@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserPayload {
 
+	// user attributes
 	private String name;
 	private String surname;
 	private String email;
