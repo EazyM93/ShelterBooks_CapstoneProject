@@ -8,6 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import ShelterBooks.address.Address;
+import ShelterBooks.address.AddressRepository;
 import ShelterBooks.book.BookRepository;
 import ShelterBooks.cart.CartService;
 import ShelterBooks.user.exceptions.BadRequestException;
@@ -23,25 +25,43 @@ public class UserService {
 	BookRepository br;
 	
 	@Autowired
+	AddressRepository ar;
+	
+	@Autowired
 	CartService cs;
 	
 	// --------------------------------------------------------user save
 	public User saveUser(UserPayload body) {
 		
+		// check if current mail is already present
 		ur.findByEmail(body.getEmail()).ifPresent(User -> {
 			throw new BadRequestException("Email " + body.getEmail() + " è già stata utilizzata");
 		});
 		
+		// create new address
+		Address newAddress = Address.builder()
+				.addressName(body.getAddressName())
+				.postalCode(body.getPostalCode())
+				.city(body.getCity())
+				.district(body.getDistrict())
+				.country(body.getCountry())
+				.build();
+		
+		Address savedAddress = ar.save(newAddress);
+		
+		// create new user
 		User newUser = User.builder()
 				.name(body.getName())
 				.surname(body.getSurname())
 				.email(body.getEmail())
 				.password(body.getPassword())
 				.role(UserRole.USER)
+				.address(ar.findById(savedAddress.getIdAddress()).get())
 				.build();
 		
 		ur.save(newUser);
 		
+		// create user's cart
 		cs.createCart(newUser);
 		
 		return newUser;

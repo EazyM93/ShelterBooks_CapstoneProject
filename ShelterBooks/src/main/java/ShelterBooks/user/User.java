@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import ShelterBooks.address.Address;
 import ShelterBooks.book.Book;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,8 +20,10 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -56,6 +59,10 @@ public class User implements UserDetails{
 	
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
+	
+	@OneToOne
+	@JoinColumn
+	private Address address;
 	
 	// lista libri acquistati
 	@OneToMany

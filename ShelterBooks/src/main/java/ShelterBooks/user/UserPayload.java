@@ -15,4 +15,11 @@ public class UserPayload {
 	private String email;
 	private String password;
 	
+	// address attributes
+	private String addressName;
+	private String postalCode;
+	private String city;
+	private String district;
+	private String country;
+	
 }
