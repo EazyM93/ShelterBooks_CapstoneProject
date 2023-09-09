@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import ShelterBooks.book.BookRepository;
 import ShelterBooks.cart.CartService;
 import ShelterBooks.user.exceptions.BadRequestException;
 import ShelterBooks.user.exceptions.NotFoundException;
@@ -17,6 +18,9 @@ public class UserService {
 
 	@Autowired
 	UserRepository ur;
+	
+	@Autowired
+	BookRepository br;
 	
 	@Autowired
 	CartService cs;
@@ -79,6 +83,26 @@ public class UserService {
 		foundUser.setEmail(body.getEmail());
 		
 		return ur.save(foundUser);
+	}
+	
+	// --------------------------------------------------------add book to wishlist
+	public User addWishlist(UUID idbook) throws NotFoundException {
+			
+		User currentUser = getCurrentUser();
+		
+		currentUser.getWishlist().add(br.findById(idbook).get());
+		
+		return ur.save(currentUser);
+	}
+	
+	// --------------------------------------------------------remove book to wishlist
+	public User removeWishlist(UUID idbook) throws NotFoundException {
+				
+		User currentUser = getCurrentUser();
+			
+		currentUser.getWishlist().remove(br.findById(idbook).get());
+			
+		return ur.save(currentUser);
 	}
 	
 	// --------------------------------------------------------delete user by id
