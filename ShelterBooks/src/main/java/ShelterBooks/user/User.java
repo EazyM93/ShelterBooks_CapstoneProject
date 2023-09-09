@@ -59,9 +59,15 @@ public class User implements UserDetails{
 	
 	// lista libri acquistati
 	@OneToMany
-	@JoinTable(name = "UserPurchasedBooks")
+	@JoinTable(name = "userPurchasedBooks")
 	@Builder.Default
 	private List<Book> purchasedBooks = new ArrayList<>();
+	
+	// lista libri acquistati
+	@OneToMany
+	@JoinTable(name = "userWishlist")
+	@Builder.Default
+	private List<Book> wishlist = new ArrayList<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
