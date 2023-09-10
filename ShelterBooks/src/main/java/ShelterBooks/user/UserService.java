@@ -101,7 +101,21 @@ public class UserService {
 		foundUser.setName(body.getName());
 		foundUser.setSurname(body.getSurname());
 		foundUser.setEmail(body.getEmail());
+		foundUser.setPassword(body.getPassword());
 		
+		return ur.save(foundUser);
+	}
+	
+	// --------------------------------------------------------modify current user 
+	public User updateCurrentUser(UserPayload body) throws NotFoundException {
+			
+		User foundUser = getCurrentUser();
+			
+		foundUser.setName(body.getName());
+		foundUser.setSurname(body.getSurname());
+		foundUser.setEmail(body.getEmail());
+		foundUser.setPassword(body.getPassword());
+			
 		return ur.save(foundUser);
 	}
 	
@@ -129,5 +143,10 @@ public class UserService {
 	public void findByIdAndDelete(UUID id) throws NotFoundException {
 		User found = this.findById(id);
 		ur.delete(found);
+	}
+	
+	// --------------------------------------------------------delete current user
+	public void deleteCurrentUser() throws NotFoundException {
+		ur.delete(getCurrentUser());
 	}
 }

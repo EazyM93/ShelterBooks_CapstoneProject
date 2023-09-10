@@ -62,17 +62,33 @@ public class UserController {
 		return us.removeWishlist(idBook);
 	}
 	
-	// --------------------------------------------------------update user
+	// --------------------------------------------------------update userby id
 	@PutMapping("/{idUser}")
-	public User updateUser(@PathVariable UUID idUser, @RequestBody UserPayload body) {
+	@PreAuthorize("hasAuthority('ADMIN')")
+	public User updateUser(@PathVariable UUID idUser, 
+			@RequestBody UserPayload body) {
 		return us.findByIdAndUpdate(idUser, body);
+	}
+	
+	// --------------------------------------------------------update current user
+	@PutMapping("/updateCurrent")
+	public User updateCurrentUser(@RequestBody UserPayload body) {
+		return us.updateCurrentUser(body);
 	}
 	
 	// --------------------------------------------------------delete user
 	@DeleteMapping("/{idUser}")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteUser(@PathVariable UUID idUser) {
 		us.findByIdAndDelete(idUser);
+	}
+	
+	// --------------------------------------------------------delete user
+	@DeleteMapping("/deleteCurrent")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteCurrentUser() {
+		us.deleteCurrentUser();
 	}
 	
 }
