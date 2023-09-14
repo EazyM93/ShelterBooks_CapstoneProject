@@ -47,6 +47,7 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 			"/users/idUser/*",
 			"/users/email/*",
 			"/users/*",
+			"/books/filter/**",
 	};
 
 	@Override
