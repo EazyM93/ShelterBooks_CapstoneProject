@@ -28,11 +28,26 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 	UserService us;
 	
 	private static final String[] PUBLIC_ROUTES = { 
-			"/books" // GET books
+			"/books", // GET
+			"/books/filter/**",
+			"/carts/currentUser",
+			"/carts/addBook/*",
+			"/carts/removeBook/*",
+			"/carts/clearCart",
+			"/users/getCurrent",
+			"/users/addWishlist/*",
+			"/users/removeWishlist/*",
+			"/users/updateCurrent",
+			"/users/deleteCurrent"
 	};
 	
 	private static final String[] ADMIN_ROUTES = { 
-			"/books" // POST create a book
+			"/books", // POST
+			"/books/updateCopies/**",
+			"/users",
+			"/users/idUser/*",
+			"/users/email/*",
+			"/users/*"
 	};
 
 	@Override
