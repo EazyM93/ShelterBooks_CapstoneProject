@@ -34,7 +34,6 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 			"/carts/addBook/*",
 			"/carts/removeBook/*",
 			"/carts/clearCart",
-			"/users/getCurrent",
 			"/users/addWishlist/*",
 			"/users/removeWishlist/*",
 			"/users/updateCurrent",
@@ -47,7 +46,7 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 			"/users",
 			"/users/idUser/*",
 			"/users/email/*",
-			"/users/*"
+			"/users/*",
 	};
 
 	@Override
