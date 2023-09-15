@@ -78,13 +78,13 @@ public class BookService {
 	}
 	
 	//-------------------------------------------------------------------------filter book
-	public Page<Book> filterBooks(String title, String author,
+	public Page<Book> filterBooks(String isbn, String title, String author,
 			String publisher, Double priceMin, Double priceMax,
 			BookGenre genre, int pageNumber, String sort){
 		
 		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
 		
-		return bookRepository.searchBook(title, author, publisher,
+		return bookRepository.searchBook(isbn, title, author, publisher,
 				priceMin, priceMax, genre, page);
 		
 	} 

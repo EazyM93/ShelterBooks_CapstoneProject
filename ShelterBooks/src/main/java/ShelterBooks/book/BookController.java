@@ -47,6 +47,7 @@ public class BookController {
 	//------------------------------------------------------------------filter books
 	@GetMapping("/filter")
 	public Page<Book> filters(
+			@RequestParam(required = false) String isbn,
 			@RequestParam(required = false) String title,
 			@RequestParam(required = false) String author,
 			@RequestParam(required = false) String publisher,
@@ -57,7 +58,7 @@ public class BookController {
 			@RequestParam(defaultValue = "title") String sort
 	){	
 		
-		return bookService.filterBooks(title, author, publisher,
+		return bookService.filterBooks(isbn, title, author, publisher,
 				priceMin, priceMax, genre, pageNumber, sort);
 	}
 }
