@@ -57,11 +57,11 @@ public class BookService {
 	}
 	
 	//-------------------------------------------------------------------------modify copies
-	public Book updateCopies(UUID idBook, int numberCopies) {
+	public Book updateCopies(UpdatePayload body) {
 		
-		Book currentBook = bookRepository.findById(idBook).get();
+		Book currentBook = bookRepository.findById(body.getIdBook()).get();
 		
-		currentBook.setAvailableCopies(currentBook.getAvailableCopies() + numberCopies);
+		currentBook.setAvailableCopies(currentBook.getAvailableCopies() + body.getNumberCopies());
 		
 		return bookRepository.save(currentBook);
 	}

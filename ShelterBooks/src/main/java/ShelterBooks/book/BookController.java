@@ -1,7 +1,5 @@
 package ShelterBooks.book;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -38,14 +36,12 @@ public class BookController {
 		return bookService.findAll(pageNumber, sort);
 	}
 	
-	//------------------------------------------------------------------get all books & order
+	//------------------------------------------------------------------update books copies
 	@PostMapping("/updateCopies")
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public Book updateCopies(
-			@RequestParam UUID idBook,
-			@RequestParam int numberCopies
-			) {
-		return bookService.updateCopies(idBook, numberCopies);
+	@ResponseStatus(HttpStatus.CREATED)
+	public Book updateCopies(@RequestBody UpdatePayload body) {
+		return bookService.updateCopies(body);
 	}
 	
 	//------------------------------------------------------------------filter books
