@@ -51,6 +51,7 @@ public class BookService {
 	public List<Book> getBooks(){
 		return bookRepository.findAll();
 	}
+	
 	//-------------------------------------------------------------------------find by id
 	public Book findById(UUID idBook){
 		return bookRepository.findById(idBook).get();

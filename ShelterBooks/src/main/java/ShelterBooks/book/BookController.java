@@ -1,5 +1,7 @@
 package ShelterBooks.book;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,11 @@ public class BookController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book createBook(@RequestBody BookPayload body) {
 		return bookService.saveBook(body);
+	}
+	
+	// --------------------------------------------------------get book by id
+	public Book findById(UUID idBook) {
+		return bookService.findById(idBook);
 	}
 	
 	//------------------------------------------------------------------get all books & order
