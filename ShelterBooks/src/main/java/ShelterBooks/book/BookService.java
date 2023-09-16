@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import ShelterBooks.user.exceptions.NotFoundException;
+
 @Service
 public class BookService {
 
@@ -57,6 +59,28 @@ public class BookService {
 		return bookRepository.findById(idBook).get();
 	}
 	
+	// ------------------------------------------------------------------------modify book by id
+		public Book findByIdAndUpdate(UUID id, BookPayload body) throws NotFoundException {
+			
+			Book foundBook = this.findById(id);
+			
+			foundBook.setIsbn(body.getIsbn());
+			foundBook.setTitle(body.getTitle());
+			foundBook.setCoverLink(body.getCoverLink());
+			foundBook.setAuthor(body.getAuthor());
+			foundBook.setPublisher(body.getPublisher());
+			foundBook.setPages(body.getPages());
+			foundBook.setPrice(body.getPrice());
+			foundBook.setPublicationYear(body.getPublicationYear());
+			foundBook.setGenre(body.getGenre());
+			foundBook.setAvailableCopies(body.getAvailableCopies());
+			foundBook.setAvailableEbook(body.getAvailableEbook());
+			foundBook.setEbookSize(body.getEbookSize());
+			foundBook.setEbookPrice(body.getEbookPrice());
+
+			return bookRepository.save(foundBook);
+		}
+	
 	//-------------------------------------------------------------------------modify copies
 	public Book updateCopies(UpdatePayload body) {
 		
@@ -67,7 +91,7 @@ public class BookService {
 		return bookRepository.save(currentBook);
 	}
 	
-	//-------------------------------------------------------------------------modify copies
+	//-------------------------------------------------------------------------modify selled copies
 	public void updateSelledCopies(UUID idBook, int selledCopies) {
 		
 		Book currentBook = bookRepository.findById(idBook).get();

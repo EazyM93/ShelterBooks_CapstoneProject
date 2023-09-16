@@ -62,7 +62,7 @@ public class UserController {
 		return us.removeWishlist(idBook);
 	}
 	
-	// --------------------------------------------------------update userby id
+	// --------------------------------------------------------update user by id
 	@PutMapping("/{idUser}")
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public User updateUser(@PathVariable UUID idUser, 

@@ -9,11 +9,13 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/books")
@@ -52,6 +54,14 @@ public class BookController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book updateCopies(@RequestBody UpdatePayload body) {
 		return bookService.updateCopies(body);
+	}
+	
+	//------------------------------------------------------------------update book
+	@PutMapping("/{idBook}")
+	@PreAuthorize("hasAuthority('ADMIN')")
+	public Book updateUser(@PathVariable UUID idBook, 
+			@RequestBody BookPayload body) {
+		return bookService.findByIdAndUpdate(idBook, body);
 	}
 	
 	//------------------------------------------------------------------filter books
