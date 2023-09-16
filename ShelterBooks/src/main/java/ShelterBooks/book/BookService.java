@@ -114,5 +114,9 @@ public class BookService {
 		
 	} 
 	
+	//-------------------------------------------------------------------------delete book
+	public void deleteBook(UUID idBook) {
+		bookRepository.delete(this.findById(idBook));
+	}
 	
 }

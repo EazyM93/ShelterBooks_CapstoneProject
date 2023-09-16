@@ -33,7 +33,7 @@ public class Book {
 	@Column(nullable = false, unique = true)
 	private String title;
 	
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String coverLink;
 	
 	@Column(nullable = false)
