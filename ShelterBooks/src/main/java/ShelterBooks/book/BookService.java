@@ -25,6 +25,7 @@ public class BookService {
 		Book newBook = Book.builder()
 				.isbn(body.getIsbn())
 				.title(body.getTitle())
+				.description(body.getDescription())
 				.coverLink(body.getCoverLink())
 				.author(body.getAuthor())
 				.publisher(body.getPublisher())
@@ -66,6 +67,7 @@ public class BookService {
 			
 			foundBook.setIsbn(body.getIsbn());
 			foundBook.setTitle(body.getTitle());
+			foundBook.setDescription(body.getDescription());
 			foundBook.setCoverLink(body.getCoverLink());
 			foundBook.setAuthor(body.getAuthor());
 			foundBook.setPublisher(body.getPublisher());

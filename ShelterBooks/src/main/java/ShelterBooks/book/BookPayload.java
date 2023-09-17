@@ -13,6 +13,7 @@ public class BookPayload {
 
 	private String isbn;
 	private String title;
+	private String description;
 	private String coverLink;
 	private String author;
 	private String publisher;

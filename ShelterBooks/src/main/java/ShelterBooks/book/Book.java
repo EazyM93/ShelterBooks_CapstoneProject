@@ -34,6 +34,9 @@ public class Book {
 	private String title;
 	
 	@Column(nullable = false)
+	private String description;
+	
+	@Column(nullable = false)
 	private String coverLink;
 	
 	@Column(nullable = false)
