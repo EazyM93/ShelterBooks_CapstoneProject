@@ -77,8 +77,10 @@ public class UserService {
 	public User getCurrentUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentUserName = authentication.getName();
-		return ur.findByEmail(currentUserName)
+		User found = ur.findByEmail(currentUserName)
 				.orElseThrow(() -> new NotFoundException("Utente con email " + currentUserName + " non trovato"));
+		System.out.println("Utente trovato: " + found.getName());
+		return found;
 	}
 	
 	// --------------------------------------------------------get user by id
