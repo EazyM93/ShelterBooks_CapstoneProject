@@ -161,6 +161,11 @@ public class UserService {
 	
 	// --------------------------------------------------------delete current user
 	public void deleteCurrentUser() throws NotFoundException {
-		ur.delete(getCurrentUser());
+		
+		User currentUser = getCurrentUser();
+		
+		cs.deleteFromCurrentUser(currentUser);
+		
+		ur.delete(currentUser);
 	}
 }

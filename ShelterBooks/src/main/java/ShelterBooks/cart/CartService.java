@@ -170,4 +170,12 @@ public class CartService {
 		
 	}
 	
+	// --------------------------------------------------------delete cart from user
+	public void deleteFromCurrentUser(User currentUser) {
+		
+		Cart currentCart = this.findByCurrentUser(currentUser);
+		
+		cartRepository.delete(currentCart); 
+	}
+	
 }
