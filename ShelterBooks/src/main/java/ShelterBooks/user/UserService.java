@@ -112,11 +112,20 @@ public class UserService {
 	public User updateCurrentUser(UserPayload body) throws NotFoundException {
 			
 		User foundUser = getCurrentUser();
+		
+		Address modAddress = foundUser.getAddress();
+		
+		modAddress.setAddressName(body.getAddressName());
+		modAddress.setPostalCode(body.getPostalCode());
+		modAddress.setCity(body.getCity());
+		modAddress.setDistrict(body.getDistrict());
+		modAddress.setCountry(body.getCountry());
 			
 		foundUser.setName(body.getName());
 		foundUser.setSurname(body.getSurname());
 		foundUser.setEmail(body.getEmail());
 		foundUser.setPassword(body.getPassword());
+		foundUser.setAddress(modAddress);
 			
 		return ur.save(foundUser);
 	}
