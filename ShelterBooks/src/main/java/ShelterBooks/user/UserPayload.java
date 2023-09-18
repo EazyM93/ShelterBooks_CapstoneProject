@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class UserPayload {
 
 	// user attributes
+	private String image;
 	private String name;
 	private String surname;
 	private String email;

@@ -38,6 +38,7 @@ public class AdminRunner implements CommandLineRunner{
 		if(!adminMatch) {
 			
 			User defaultAdmin = User.builder()
+				.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5j1QoysD2S9Mq32jDCO9ExkcKWP19RbcDxA&usqp=CAU")
 				.name("admin")
 				.surname("admin")
 				.email("admin@admin.com")

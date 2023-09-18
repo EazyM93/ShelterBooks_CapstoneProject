@@ -45,6 +45,9 @@ public class User implements UserDetails{
 	private UUID idUser;
 	
 	@Column(nullable = false)
+	private String image;
+
+	@Column(nullable = false)
 	private String name;
 	
 	@Column(nullable = false)

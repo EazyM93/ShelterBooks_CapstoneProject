@@ -51,6 +51,7 @@ public class UserService {
 		
 		// create new user
 		User newUser = User.builder()
+				.image(body.getImage())
 				.name(body.getName())
 				.surname(body.getSurname())
 				.email(body.getEmail())
@@ -100,6 +101,7 @@ public class UserService {
 		
 		User foundUser = this.findById(id);
 		
+		foundUser.setImage(body.getImage());
 		foundUser.setName(body.getName());
 		foundUser.setSurname(body.getSurname());
 		foundUser.setEmail(body.getEmail());
@@ -120,7 +122,8 @@ public class UserService {
 		modAddress.setCity(body.getCity());
 		modAddress.setDistrict(body.getDistrict());
 		modAddress.setCountry(body.getCountry());
-			
+		
+		foundUser.setImage(body.getImage());
 		foundUser.setName(body.getName());
 		foundUser.setSurname(body.getSurname());
 		foundUser.setEmail(body.getEmail());
