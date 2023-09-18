@@ -35,7 +35,6 @@ public class BookController {
 	
 	// --------------------------------------------------------get book by id
 	@GetMapping("/idBook/{idBook}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public Book findById(@PathVariable UUID idBook) {
 		return bookService.findById(idBook);
 	}

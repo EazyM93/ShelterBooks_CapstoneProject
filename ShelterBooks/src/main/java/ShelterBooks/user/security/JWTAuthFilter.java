@@ -30,6 +30,7 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 	private static final String[] PUBLIC_ROUTES = { 
 			"/books", // GET
 			"/books/filter/**",
+			"/books/idBook/**",
 			"/carts/currentUser",
 			"/carts/addBook/*",
 			"/carts/removeBook/*",
