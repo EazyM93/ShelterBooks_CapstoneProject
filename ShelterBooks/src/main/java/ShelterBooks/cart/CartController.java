@@ -26,7 +26,7 @@ public class CartController {
 	BookService bookService;
 	
 	// --------------------------------------------------------find cart by user id
-	@GetMapping("/currentUser")
+	@GetMapping("/currentCart")
 	public Cart findByCurrentUser() {
 		return cartService.findByCurrentUser(userService.getCurrentUser());		
 	}
