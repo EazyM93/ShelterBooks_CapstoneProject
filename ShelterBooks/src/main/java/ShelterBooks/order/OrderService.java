@@ -53,9 +53,10 @@ public class OrderService {
 		return orderRepository.findById(idOrder).get();
 	}
 	
-	//-------------------------------------------------------------------------create order
+	//-------------------------------------------------------------------------find all orders
 	public Page<Order> findAll(int pageNumber, String sort){
-		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(sort));
+		Sort.Direction direction = Sort.Direction.DESC;
+		Pageable page = PageRequest.of(pageNumber, 10, Sort.by(direction, sort));
 		return orderRepository.findAll(page);
 	}
 	

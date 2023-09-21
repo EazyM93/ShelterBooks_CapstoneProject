@@ -37,7 +37,7 @@ public class CartController {
 		return cartService.addBook(findByCurrentUser(), bookService.findById(idBook));
 	}
 	
-	// --------------------------------------------------------add book to cart
+	// --------------------------------------------------------remove book to cart
 	@PostMapping("/removeBook/{idBook}")
 	public Cart removeBook(@PathVariable UUID idBook) {
 		return cartService.removeBook(findByCurrentUser(), bookService.findById(idBook));

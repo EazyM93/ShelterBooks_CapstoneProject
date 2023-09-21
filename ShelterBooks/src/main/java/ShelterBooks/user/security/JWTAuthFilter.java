@@ -35,14 +35,14 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 			"/carts/addBook/*",
 			"/carts/removeBook/*",
 			"/carts/clearCart",
-			"/orders"
+			
 	};
 	
 	private static final String[] ADMIN_ROUTES = { 
 			"/books", // POST
 			"/books/updateCopies/**",
 			"/books/filter/**",
-			"/orders"
+			
 	};
 
 	@Override
