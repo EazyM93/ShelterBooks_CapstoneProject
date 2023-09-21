@@ -23,7 +23,7 @@ public class OrderController {
 	OrderService orderService;
 	
 	// --------------------------------------------------------create order
-	@PostMapping
+	@GetMapping("/createOrder")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Order createBook() {
 		return orderService.createOrder();

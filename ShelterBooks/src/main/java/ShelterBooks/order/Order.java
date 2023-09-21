@@ -47,6 +47,6 @@ public class Order {
     @CollectionTable(name = "order_books")
     @MapKeyJoinColumn(name = "idBook")
     @Column(name = "bookQuantity")
-    private Map<Book, Integer> booksWithQuantity;
+    private Map<Book, Integer> shoppedBooksWithQuantity;
 	
 }

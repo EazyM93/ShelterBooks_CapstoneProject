@@ -146,7 +146,7 @@ public class CartService {
 					boolean idMatch = false;
 					
 					for(Book b : userBooks) {
-						if(!book.getIdBook().equals(b.getIdBook())) {
+						if(book.getIdBook().equals(b.getIdBook())) {
 							idMatch = true;
 							break;
 						}	
@@ -163,6 +163,7 @@ public class CartService {
 		
 		// add books and save user 
 		userBooks.addAll(booksToAdd);
+		user.setPurchasedBooks(userBooks);
 		userRepository.save(user);
 		
 		// clear cart

@@ -1,6 +1,7 @@
 package ShelterBooks.order;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -36,12 +37,12 @@ public class OrderService {
 		
 		Cart currentCart = cartService.findByCurrentUser(currentUser);
 		
-		Map<Book, Integer> currentMap = currentCart.getBooksWithQuantity();
+		Map<Book, Integer> currentMap = new HashMap<>(currentCart.getBooksWithQuantity());
 		
 		Order newOrder = Order.builder()
 				.user(currentUser)
 				.submitted(LocalDate.now())
-				.booksWithQuantity(currentMap)
+				.shoppedBooksWithQuantity(currentMap)
 				.build();
 		
 		return orderRepository.save(newOrder);
