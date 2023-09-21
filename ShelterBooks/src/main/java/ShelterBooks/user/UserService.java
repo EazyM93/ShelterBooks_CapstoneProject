@@ -155,7 +155,11 @@ public class UserService {
 	
 	// --------------------------------------------------------delete user by id
 	public void findByIdAndDelete(UUID id) throws NotFoundException {
+		
 		User found = this.findById(id);
+		
+		cs.deleteFromCurrentUser(found);
+		
 		ur.delete(found);
 	}
 	
