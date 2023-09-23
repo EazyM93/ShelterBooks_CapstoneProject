@@ -1,5 +1,6 @@
 package ShelterBooks.book;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,12 @@ public class BookController {
 	@GetMapping("/idBook/{idBook}")
 	public Book findById(@PathVariable UUID idBook) {
 		return bookService.findById(idBook);
+	}
+	
+	//------------------------------------------------------------------get all books
+	@GetMapping("/getAllBooks")
+	public List<Book> getAllBooks(){
+		return bookService.getBooks();
 	}
 	
 	//------------------------------------------------------------------get all books & order

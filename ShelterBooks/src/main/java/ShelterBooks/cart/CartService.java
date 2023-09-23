@@ -120,10 +120,10 @@ public class CartService {
 		List<Book> bookList = bookService.getBooks();
 		
 		// empty list to store all the matches to be add to the user
-		List<Book> booksToAdd = new ArrayList<>();
+		List<UUID> booksToAdd = new ArrayList<>();
 		
 		// current list of purchased books by the user
-		List <Book> userBooks = user.getPurchasedBooks();
+		List <UUID> userBooks = user.getPurchasedBooks();
 		
 		// loop current cart
 		for(Map.Entry<Book, Integer> entry: currentMap.entrySet()) {
@@ -145,15 +145,18 @@ public class CartService {
 					// updadate user purchased books only if it is not present in the list
 					boolean idMatch = false;
 					
-					for(Book b : userBooks) {
-						if(book.getIdBook().equals(b.getIdBook())) {
-							idMatch = true;
-							break;
+					if(userBooks != null) {
+						for(UUID idBook : userBooks) {
+							if(actualBook.equals(idBook)) {
+								idMatch = true;
+								break;
+							}	
 						}	
 					}
+					
 		
 					if(!idMatch)
-						booksToAdd.add(book);
+						booksToAdd.add(actualBook);
 					
 					// stop inner loop after finding the match and restart with another element
 					break;

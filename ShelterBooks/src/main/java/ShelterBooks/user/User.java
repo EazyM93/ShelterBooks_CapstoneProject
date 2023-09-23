@@ -68,10 +68,8 @@ public class User implements UserDetails{
 	private Address address;
 	
 	// lista libri acquistati
-	@OneToMany
-	@JoinTable(name = "userPurchasedBooks")
 	@Builder.Default
-	private List<Book> purchasedBooks = new ArrayList<>();
+	private List<UUID> purchasedBooks = new ArrayList<>();
 	
 	// lista libri acquistati
 	@OneToMany
