@@ -84,7 +84,7 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
 - 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
 
---------------------------------------------------------------- 📙 **BOOK** 📙 ---------------------------------------------------------------
+-------------------------------------------------------------- 📙 **BOOK** 📙 --------------------------------------------------------------
 
 I libri saranno il prodotto centrale in vendita grazie all'applicazione e sarà così definito nei suoi attributi:
 
