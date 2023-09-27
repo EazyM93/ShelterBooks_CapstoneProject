@@ -163,3 +163,34 @@ Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://l
 
 - 🟧 "/clearCart" (POST)
   Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
+
+-------------------------------------------------------------- 📦 **ORDER** 📦 --------------------------------------------------------------
+
+Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visualizzati dall'admin nella parte gestionale del front-end.
+
+- idOrder ( autogenerato come UUID )
+- user
+- submitted
+- shipped
+- shppedBooksWithQuantity
+  
+⚙️ 📦 **FUNZIONI ORDER (*permesse a tutti*)** -------------------------------------------------------
+ 
+L'endpoint degli ordini sarà http://localhost:3001/orders
+
+- 🟩 "/createOrder" (GET)
+  Creazione di un ordine manuale. Il programma è impostato per creare in autonomia l’ordine durante il “clear” del carrello contestualmente all’acquisto dei libri e la finalizzazione del pagamento
+
+- 🟩 "/idOrder/{idOrder}" (GET)
+  Restituisce un ordine tramite id
+
+⚙️ 📦 🔑 **FUNZIONI ORDER (*permesse solo all'admin*)** -------------------------------------------------------
+
+- 🟩 " " (GET)
+  Restituisce una lista di tutti gli ordini in formato Pageable
+
+- 🟧 "/shipOrder/{idOrder}" (POST)
+  Inizializza la data di spedizione al momento dell'acquisto
+
+- 🟥 "/{idOrder}" (DELETE)
+  Cancella un ordine passato con id dal Database
