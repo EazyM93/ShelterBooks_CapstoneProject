@@ -17,6 +17,7 @@ Le entità presenti sono:
 - Address 📫
 
 -------------------- 👤 USER 👤 --------------------
+
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
 
 - idUser ( autogenerato come UUID )
