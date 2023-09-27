@@ -16,7 +16,7 @@ Le entità presenti sono:
 - Order 📦
 - Address 📫
 
-------------------------------------------------------- 👤 **USER** 👤 -------------------------------------------------------
+--------------------------------------------------------------- 👤 **USER** 👤 ---------------------------------------------------------------
 
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
 
@@ -69,6 +69,7 @@ Le funzionalità dello user saranno raggiungibili dai seguenti endpoint:
 
 ⚙️ 🔑 **FUNZIONI ADMIN** -------------------------------------------------------
 
+L'endpoint base dell'admin è lo stesso degli utenti http://localhost:3001/users
 I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un controllo prima di potervi accedere
 
 - 🟩 " " (GET)
@@ -82,4 +83,59 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
 
 - 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
+
+--------------------------------------------------------------- 📙 **BOOK** 📙 ---------------------------------------------------------------
+
+I libri saranno il prodotto centrale in vendita grazie all'applicazione e sarà così definito nei suoi attributi:
+
+- idBook ( autogenerato come UUID )
+- isbn
+- title
+- description
+- coverLink
+- author
+- publisher
+- pages
+- price
+- publicationYear
+- genre
+- insertionDate
+- availableEbook
+- ebookSize
+- ebookPrice
+- allSelledCopies
+
+Quando viene creato un libro sarà possibile inserire un'eventuale versione ebook.
+La insertion date sarà utilizzata per visualizzare le ultime novità aggiunte al sito nel front-end.
+AllSelledCopies sarà utilizzato per visualizzare i bestseller del sito nel front-end.
+
+⚙️ 📙 **FUNZIONI BOOK (*permesse a tutti*)** -------------------------------------------------------
+
+L'endpoint base per i libri è http://localhost:3001/books
+Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint:
+
+- 🟩 " " (GET)
+  Restituisce la lista di tutti i libri del DB in forma di Pageable con la possibilità di specificare l’ordinamento
+
+- 🟩 "/getAllBooks" (GET)
+  Restituisce la lista di tutti i libri del database
+
+- 🟩 "/idBook/{idBook} (GET)
+  Restituisce un libro con l'id inviato
+
+- 🟩 "/filter" (GET)
+  Restituisce una lista di tutti i libri filtrati in modo specifico e in formato Pageable. Si può filtrare per isbn, titolo, autore, editor, prezzo minimo/massimo, genere
   
+⚙️ 📙 🔑 **FUNZIONI BOOK (*permesse solo all'admin*)** -------------------------------------------------------
+
+- 🟧 " " (POST)
+  Crea un libro con id univoco passando un payload
+
+- 🟧 "/updateCopies" (POST)
+  Aggiungi copie di un libro esistente al magazzino passando il payload
+
+- 🟦 "/{idBook}" (PUT)
+  Modifica le informazioni di un libro tramite ID specifico, passando il payload
+
+- 🟥 "/{idBook}" (DELETE)
+  Cancella un libro dal Database tramite il suo ID
