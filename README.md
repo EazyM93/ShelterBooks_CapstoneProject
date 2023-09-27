@@ -139,3 +139,27 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
 
 - 🟥 "/{idBook}" (DELETE)
   Cancella un libro dal Database tramite il suo ID
+
+--------------------------------------------------------------- 🛒 **CART** 🛒 ---------------------------------------------------------------
+
+Ogni utente avrà il suo personale carrello con ID univoco, questo permette di mantenere in memoria gli elementi contenuti nel carrello.
+
+- idCart ( autogenerato come UUID )
+- user
+- booksWithQuantity
+
+La collezione dei libri nel carrello è sottoforma di MAP, dove l'oggetto Book funge da chiave per un numero intero che funge da quantità di copie nel carrello. Questo permette di non avere errori nell'associare il libro corretto alla quantità che si vuole acquistare, il tutto senza creare un proprità in più all'interno della classe Book.
+
+Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://localhost:3001/carts
+
+- 🟩 "/currentCart" (GET)
+  Restituisce il carrello dello user corrente
+
+- 🟧 "/addBook/{idBook}" (POST)
+  Aggiunge un libro con l'id inviato al carrello dello user corrente
+
+- 🟧 "/removeBook/{idBook}" (POST)
+  Rimuove un libro con l'id inviato dal carrello dello user corrente
+
+- 🟧 "/clearCart" (POST)
+  Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
