@@ -16,7 +16,7 @@ Le entità presenti sono:
 - Order 📦
 - Address 📫
 
-------------------------------------------------------- 👤 # USER 👤 -------------------------------------------------------
+------------------------------------------------------- 👤 **USER** 👤 -------------------------------------------------------
 
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
 
@@ -34,50 +34,52 @@ L'utente è il protagonista dell'applicativo e sarà così definito nei suoi att
 Name, surname, image, email, password, address sono informazioni che non possono essere null e saranno ricevute come payload che conterrà tutti i dati dell'utente e dell'indirizzo, quest'ultimo verrà automaticamente generato prenedendo queste informazioni.
 Contestualmente alla creazione dell'utente verrà generato un carrello ad esso correlato e che possiede un proprio ID univoco.
 
-CREAZIONE e LOGIN ✍🏻 🔐
+🔐 ✍🏻 **CREAZIONE e LOGIN** -------------------------------------------------------
 
 L' utente sarà gestito con authorization all'endpoint http://localhost:3001/auth :
 
-- "/register" (POST)
+- 🟧 "/register" (POST)
   L'utente verrà registrato tramite il service dello User.Qui verranno creati carrello e indirizzo.
 
-- "/login" (POST)
+- 🟧 "/login" (POST)
   L'utente eseguirà il login con generazione del bearer token tramite autenticazione JWT.
 
-- "/logout" (POST)
+- 🟧 "/logout" (POST)
   L'utente effettua il logout con conseguente rimozione del token
 
-FUNZIONI USER (*permesse a tutti*)
+⚙️ 👤 **FUNZIONI USER (*permesse a tutti*)** -------------------------------------------------------
+
 L'endpoint base degli utenti è http://localhost:3001/users
 Le funzionalità dello user saranno raggiungibili dai seguenti endpoint:
 
-- "/getCurrent" (GET)
+- 🟩 "/getCurrent" (GET)
   Restituisce l'utente correntemente loggato
 
-- "/addWishlist/{idBook}" (POST)
+- 🟧 "/addWishlist/{idBook}" (POST)
   Aggiunge il libro con l’id ricevuto alla lista dei preferiti dell’ utente corrente
 
-- "/removeWishlist/{idBook}" (POST)
+- 🟧 "/removeWishlist/{idBook}" (POST)
   Rimuove il libro con l’id ricevuto dalla lista dei preferiti dell’ utente corrente
 
-- "/updateCurrent" (PUT)
+- 🟦 "/updateCurrent" (PUT)
   Invia un json body con gli update che l’utente vuole fare dei suoi dati
 
-- "/deleteCurrent" (DELETE)
+- 🟥 "/deleteCurrent" (DELETE)
   Rimuove l’utente corrente dal database
 
-FUNZIONI ADMIN
+⚙️ 🔑 **FUNZIONI ADMIN** -------------------------------------------------------
+
 I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un controllo prima di potervi accedere
 
-- " " (GET)
+- 🟩 " " (GET)
   Restituisce la lista di tutti gli utenti senza admin
 
-- "/idUser/{idUser}" (GET)
+- 🟩 "/idUser/{idUser}" (GET)
   Restituisce l'utente con l'id inviato
 
-- "/email/{email}" (GET)
+- 🟩 "/email/{email}" (GET)
   Restituisce l'utente con la mail inviata
 
-- "/{idUser}" (DELETE)
+- 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
   
