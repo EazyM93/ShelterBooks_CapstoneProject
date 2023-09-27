@@ -1,6 +1,8 @@
 # ShelterBooks_CapstoneProject
 Back-end progetto finale Capstone del percorso con EPICODE School 2023 Full-Stack Course 🚀
 
+Link al readme front-end : https://github.com/EazyM93/ShelterBooks_Frontend/blob/main/README.md
+
 Ho scelto di creare un sito e-commerce di libri che permettesse all'utente di tenere traccia dei suoi acquisti sottoforma di libreria virtuale 📚
 
 Quella che andrò a descrivere è la componente Back-end dell'applicativo sviluppata utilizzando Java, Springboot e PostgresSql 💻
