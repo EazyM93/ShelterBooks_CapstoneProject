@@ -144,7 +144,8 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
 - 🟥 "/{idBook}" (DELETE)
   Cancella un libro dal Database tramite il suo ID
 
---------------------------------------------------------------- 🛒 **CART** 🛒 ---------------------------------------------------------------
+🛒 **CART** 🛒
+---------------------------------------------------------------
 
 Ogni utente avrà il suo personale carrello con ID univoco, questo permette di mantenere in memoria gli elementi contenuti nel carrello.
 
@@ -168,7 +169,8 @@ Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://l
 - 🟧 "/clearCart" (POST)
   Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
 
--------------------------------------------------------------- 📦 **ORDER** 📦 --------------------------------------------------------------
+📦 **ORDER** 📦
+--------------------------------------------------------------
 
 Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visualizzati dall'admin nella parte gestionale del front-end.
 
