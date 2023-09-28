@@ -8,7 +8,7 @@ Ho scelto di creare un sito e-commerce di libri che permettesse all'utente di te
 Quella che andrò a descrivere è la componente Back-end dell'applicativo sviluppata utilizzando ${\color{aqua}Java}$, ${\color{aqua}Spring \space Boot}$ e ${\color{aqua}PostgreSql}$ 💻
 
 Una funzionalità che si esegue in fase di avvio dell'applicativo back end è un controllo sui ruoli della lista utenti.
-Se nell'elenco esiste un "ADMIN" il programma viene inizailizzato normalmente, altrimenti genera un admin con informazioni di default e una password salvata nel file locale env.properties.
+Se nell'elenco esiste un "ADMIN" il programma viene inizializzato normalmente, altrimenti genera un admin con informazioni di default e una password salvata nel file locale env.properties.
 
 Le entità presenti sono:
 
