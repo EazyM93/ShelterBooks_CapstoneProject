@@ -20,7 +20,7 @@ Le entità presenti sono:
 
 👤 **USER** 👤
 ---------------------------------------------------------------
-<a href="#">torna su</a>
+
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
 
 - idUser ( autogenerato come UUID )
@@ -86,6 +86,8 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
 
 - 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
+
+<a href="#">torna su</a>
 
 📙 **BOOK** 📙 <a href="#">torna su</a>
 --------------------------------------------------------------
