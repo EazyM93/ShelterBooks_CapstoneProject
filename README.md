@@ -132,7 +132,8 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
   Restituisce un libro con l'id inviato
 
 - 🟩 "/filter" (GET)
-  Restituisce una lista di tutti i libri filtrati in modo specifico e in formato Pageable. Si può filtrare per isbn, titolo, autore, editor, prezzo minimo/massimo, genere
+  Restituisce una lista di tutti i libri filtrati in modo specifico e in formato Pageable.
+  Si può filtrare per isbn, titolo, autore, editor, prezzo minimo/massimo, genere
 ```
 ```  
 ⚙️ 📙 🔑 **FUNZIONI BOOK (*permesse solo all'admin*)** -------------------------------------------------------
