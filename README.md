@@ -88,9 +88,8 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
   Elimina l'utente con l'id inviato dal Database
 
 <a href="#">TORNA SU</a>
-<button type="button" style="background:red; cursor:pointer">click me</button>
 
-📙 **BOOK** 📙 <a href="#">torna su</a>
+📙 **BOOK** 📙
 --------------------------------------------------------------
 
 I libri saranno il prodotto centrale in vendita grazie all'applicazione e sarà così definito nei suoi attributi:
@@ -147,7 +146,9 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
 - 🟥 "/{idBook}" (DELETE)
   Cancella un libro dal Database tramite il suo ID
 
-🛒 **CART** 🛒 <a href="#">torna su</a>
+<a href="#">TORNA SU</a>
+
+🛒 **CART** 🛒
 ---------------------------------------------------------------
 
 Ogni utente avrà il suo personale carrello con ID univoco, questo permette di mantenere in memoria gli elementi contenuti nel carrello.
@@ -172,7 +173,9 @@ Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://l
 - 🟧 "/clearCart" (POST)
   Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
 
-📦 **ORDER** 📦 <a href="#">torna su</a>
+<a href="#">TORNA SU</a>
+
+📦 **ORDER** 📦
 --------------------------------------------------------------
 
 Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visualizzati dall'admin nella parte gestionale del front-end.
@@ -203,3 +206,5 @@ L'endpoint degli ordini sarà http://localhost:3001/orders
 
 - 🟥 "/{idOrder}" (DELETE)
   Cancella un ordine passato con id dal Database
+
+<a href="#">TORNA SU</a>
