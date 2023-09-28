@@ -50,6 +50,7 @@ L' utente sarà gestito con authorization all'endpoint http://localhost:3001/aut
 - 🟧 "/logout" (POST)
   L'utente effettua il logout con conseguente rimozione del token
 ```
+```
 ⚙️ 👤 **FUNZIONI USER (*permesse a tutti*)** -------------------------------------------------------
 
 L'endpoint base degli utenti è http://localhost:3001/users
@@ -69,7 +70,8 @@ Le funzionalità dello user saranno raggiungibili dai seguenti endpoint:
 
 - 🟥 "/deleteCurrent" (DELETE)
   Rimuove l’utente corrente dal database
-
+```
+```
 ⚙️ 🔑 **FUNZIONI ADMIN** -------------------------------------------------------
 
 L'endpoint base dell'admin è lo stesso degli utenti http://localhost:3001/users
@@ -86,7 +88,7 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
 
 - 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
-
+```
 <a href="#">TORNA SU</a>
 
 📙 **BOOK** 📙
