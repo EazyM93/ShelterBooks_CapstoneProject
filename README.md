@@ -5,7 +5,7 @@ Link alla repository front-end : https://github.com/EazyM93/ShelterBooks_Fronten
 
 Ho scelto di creare un sito e-commerce di libri che permettesse all'utente di tenere traccia dei suoi acquisti sottoforma di libreria virtuale 📚
 
-Quella che andrò a descrivere è la componente Back-end dell'applicativo sviluppata utilizzando Java, Springboot e PostgresSql 💻
+Quella che andrò a descrivere è la componente Back-end dell'applicativo sviluppata utilizzando ${\color{aqua}Spring \space Boot}$ e ${\color{aqua}PostgreSql}$ 💻
 
 Una funzionalità che si esegue in fase di avvio dell'applicativo back end è un controllo sui ruoli della lista utenti.
 Se nell'elenco esiste un "ADMIN" il programma viene inizailizzato normalmente, altrimenti genera un admin con informazioni di default e una password salvata nel file locale env.properties.
