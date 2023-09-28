@@ -18,7 +18,7 @@ Le entità presenti sono:
 - <a href="#-order-">Order 📦</a>
 - Address 📫
 
-👤 **USER** 👤
+👤 **USER** 👤 <a href="#">torna su</a>
 ---------------------------------------------------------------
 
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
@@ -87,7 +87,7 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
 - 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
 
-📙 **BOOK** 📙
+📙 **BOOK** 📙 <a href="#">torna su</a>
 --------------------------------------------------------------
 
 I libri saranno il prodotto centrale in vendita grazie all'applicazione e sarà così definito nei suoi attributi:
@@ -144,7 +144,7 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
 - 🟥 "/{idBook}" (DELETE)
   Cancella un libro dal Database tramite il suo ID
 
-🛒 **CART** 🛒
+🛒 **CART** 🛒 <a href="#">torna su</a>
 ---------------------------------------------------------------
 
 Ogni utente avrà il suo personale carrello con ID univoco, questo permette di mantenere in memoria gli elementi contenuti nel carrello.
@@ -169,7 +169,7 @@ Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://l
 - 🟧 "/clearCart" (POST)
   Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
 
-📦 **ORDER** 📦
+📦 **ORDER** 📦 <a href="#">torna su</a>
 --------------------------------------------------------------
 
 Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visualizzati dall'admin nella parte gestionale del front-end.
