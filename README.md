@@ -13,7 +13,7 @@ Se nell'elenco esiste un "ADMIN" il programma viene inizailizzato normalmente, a
 Le entità presenti sono:
 
 - User 👤
-- Book 📙
+- <a href="#-book-">Book 📙</a>
 - Cart 🛒
 - Order 📦
 - Address 📫
