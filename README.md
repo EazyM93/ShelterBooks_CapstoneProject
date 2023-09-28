@@ -123,7 +123,7 @@ L'endpoint base per i libri è http://localhost:3001/books
 Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint:
 
 - 🟩 " " (GET)
-  Restituisce la lista di tutti i libri del DB in forma di Pageable con la possibilità di specificare l’ordinamento
+  Restituisce la lista di tutti i libri del DB in forma di Pageable specificando l’ordinamento
 
 - 🟩 "/getAllBooks" (GET)
   Restituisce la lista di tutti i libri del database
