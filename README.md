@@ -36,7 +36,7 @@ L'utente è il protagonista dell'applicativo e sarà così definito nei suoi att
 
 Name, surname, image, email, password, address sono informazioni che non possono essere null e saranno ricevute come payload che conterrà tutti i dati dell'utente e dell'indirizzo, quest'ultimo verrà automaticamente generato prenedendo queste informazioni.
 Contestualmente alla creazione dell'utente verrà generato un carrello ad esso correlato e che possiede un proprio ID univoco.
-
+```
 🔐 ✍🏻 **CREAZIONE e LOGIN** -------------------------------------------------------
 
 L' utente sarà gestito con authorization all'endpoint http://localhost:3001/auth :
@@ -49,7 +49,7 @@ L' utente sarà gestito con authorization all'endpoint http://localhost:3001/aut
 
 - 🟧 "/logout" (POST)
   L'utente effettua il logout con conseguente rimozione del token
-
+```
 ⚙️ 👤 **FUNZIONI USER (*permesse a tutti*)** -------------------------------------------------------
 
 L'endpoint base degli utenti è http://localhost:3001/users
