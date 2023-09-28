@@ -37,7 +37,7 @@ L'utente è il protagonista dell'applicativo e sarà così definito nei suoi att
 Name, surname, image, email, password, address sono informazioni che non possono essere null e saranno ricevute come payload che conterrà tutti i dati dell'utente e dell'indirizzo, quest'ultimo verrà automaticamente generato prenedendo queste informazioni.
 Contestualmente alla creazione dell'utente verrà generato un carrello ad esso correlato e che possiede un proprio ID univoco.
 ```
-🔐 ✍🏻 **CREAZIONE e LOGIN** 
+🔐 ✍🏻 CREAZIONE e LOGIN
 
 L' utente sarà gestito con authorization all'endpoint http://localhost:3001/auth :
 
@@ -52,7 +52,7 @@ L' utente sarà gestito con authorization all'endpoint http://localhost:3001/aut
   L'utente effettua il logout con conseguente rimozione del token
 ```
 ```
-⚙️ 👤 **FUNZIONI USER (*permesse a tutti*)** 
+⚙️ 👤 FUNZIONI USER (permesse a tutti)
 
 L'endpoint base degli utenti è http://localhost:3001/users
 Le funzionalità dello user saranno raggiungibili dai seguenti endpoint:
@@ -73,7 +73,7 @@ Le funzionalità dello user saranno raggiungibili dai seguenti endpoint:
   Rimuove l’utente corrente dal database
 ```
 ```
-⚙️ 🔑 **FUNZIONI ADMIN** 
+⚙️ 🔑 FUNZIONI ADMIN
 
 L'endpoint base dell'admin è lo stesso degli utenti http://localhost:3001/users
 I seguenti endpoint saranno accesibili solo agli Admin.
@@ -118,7 +118,7 @@ Quando viene creato un libro sarà possibile inserire un'eventuale versione eboo
 La insertion date sarà utilizzata per visualizzare le ultime novità aggiunte al sito nel front-end.
 AllSelledCopies sarà utilizzato per visualizzare i bestseller del sito nel front-end.
 ```
-⚙️ 📙 **FUNZIONI BOOK (*permesse a tutti*)** 
+⚙️ 📙 FUNZIONI BOOK (permesse a tutti) 
 
 L'endpoint base per i libri è http://localhost:3001/books
 Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint:
@@ -137,7 +137,7 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
   Si può filtrare per isbn, titolo, autore, editor, prezzo minimo/massimo, genere
 ```
 ```  
-⚙️ 📙 🔑 **FUNZIONI BOOK (*permesse solo all'admin*)** 
+⚙️ 📙 🔑 FUNZIONI BOOK (permesse solo all'admin)
 
 - 🟧 " " (POST)
   Crea un libro con id univoco passando un payload
@@ -194,7 +194,7 @@ Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visual
 - shipped
 - shppedBooksWithQuantity
 ```  
-⚙️ 📦 **FUNZIONI ORDER (*permesse a tutti*)** 
+⚙️ 📦 FUNZIONI ORDER (permesse a tutti)
  
 L'endpoint degli ordini sarà http://localhost:3001/orders
 
