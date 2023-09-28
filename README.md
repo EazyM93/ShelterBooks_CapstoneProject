@@ -87,7 +87,7 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
 - 🟥 "/{idUser}" (DELETE)
   Elimina l'utente con l'id inviato dal Database
 
-<a href="#"><button>torna su</button></a>
+<a href="#"><button type="button">torna su</button></a>
 
 📙 **BOOK** 📙 <a href="#">torna su</a>
 --------------------------------------------------------------
