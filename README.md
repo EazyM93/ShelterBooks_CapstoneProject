@@ -12,10 +12,10 @@ Se nell'elenco esiste un "ADMIN" il programma viene inizailizzato normalmente, a
 
 Le entità presenti sono:
 
-- User 👤
+- <a href="#-user-">User 👤</a>
 - <a href="#-book-">Book 📙</a>
-- Cart 🛒
-- Order 📦
+- <a href="#-cart-">Cart 🛒</a>
+- <a href="#-order-">Order 📦</a>
 - Address 📫
 
 👤 **USER** 👤
