@@ -198,7 +198,7 @@ L'endpoint degli ordini sarà http://localhost:3001/orders
 
 - 🟩 "/createOrder" (GET)
   Creazione di un ordine manuale.
-  Il programma è impostato per creare in autonomia l’ordine durante il “clear” del carrello dopo la finalizzazione del pagamento
+  Dopo la finalizzazione del pagamento, crea in autonomia l’ordine durante il “clear” del carrello.
 
 - 🟩 "/idOrder/{idOrder}" (GET)
   Restituisce un ordine tramite id
