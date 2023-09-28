@@ -18,7 +18,8 @@ Le entità presenti sono:
 - <a href="#-order-">Order 📦</a>
 - Address 📫
 
-👤 **USER** 👤 <a href="#">torna su</a>
+👤 **USER** 👤
+<a href="#">torna su</a>
 ---------------------------------------------------------------
 
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
