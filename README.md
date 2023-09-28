@@ -116,7 +116,7 @@ I libri saranno il prodotto centrale in vendita grazie all'applicazione e sarà 
 Quando viene creato un libro sarà possibile inserire un'eventuale versione ebook.
 La insertion date sarà utilizzata per visualizzare le ultime novità aggiunte al sito nel front-end.
 AllSelledCopies sarà utilizzato per visualizzare i bestseller del sito nel front-end.
-
+```
 ⚙️ 📙 **FUNZIONI BOOK (*permesse a tutti*)** -------------------------------------------------------
 
 L'endpoint base per i libri è http://localhost:3001/books
@@ -133,7 +133,8 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
 
 - 🟩 "/filter" (GET)
   Restituisce una lista di tutti i libri filtrati in modo specifico e in formato Pageable. Si può filtrare per isbn, titolo, autore, editor, prezzo minimo/massimo, genere
-  
+```
+```  
 ⚙️ 📙 🔑 **FUNZIONI BOOK (*permesse solo all'admin*)** -------------------------------------------------------
 
 - 🟧 " " (POST)
@@ -147,7 +148,7 @@ Le funzionalità pubbliche dei books saranno raggiungibili dai seguenti endpoint
 
 - 🟥 "/{idBook}" (DELETE)
   Cancella un libro dal Database tramite il suo ID
-
+```
 <a href="#">TORNA SU</a>
 
 🛒 **CART** 🛒
@@ -160,7 +161,7 @@ Ogni utente avrà il suo personale carrello con ID univoco, questo permette di m
 - booksWithQuantity
 
 La collezione dei libri nel carrello è sottoforma di MAP, dove l'oggetto Book funge da chiave per un numero intero che funge da quantità di copie nel carrello. Questo permette di non avere errori nell'associare il libro corretto alla quantità che si vuole acquistare, il tutto senza creare un proprità in più all'interno della classe Book.
-
+```
 Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://localhost:3001/carts
 
 - 🟩 "/currentCart" (GET)
@@ -174,7 +175,7 @@ Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://l
 
 - 🟧 "/clearCart" (POST)
   Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
-
+```
 <a href="#">TORNA SU</a>
 
 📦 **ORDER** 📦
@@ -187,7 +188,7 @@ Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visual
 - submitted
 - shipped
 - shppedBooksWithQuantity
-  
+```  
 ⚙️ 📦 **FUNZIONI ORDER (*permesse a tutti*)** -------------------------------------------------------
  
 L'endpoint degli ordini sarà http://localhost:3001/orders
@@ -208,5 +209,5 @@ L'endpoint degli ordini sarà http://localhost:3001/orders
 
 - 🟥 "/{idOrder}" (DELETE)
   Cancella un ordine passato con id dal Database
-
+```
 <a href="#">TORNA SU</a>
