@@ -88,7 +88,7 @@ I seguenti endpoint saranno accesibili solo agli Admin e verrà effettuato un co
   Elimina l'utente con l'id inviato dal Database
 
 <a href="#">TORNA SU</a>
-<button style="background:red; cursor:pointer">click me</button>
+<button type="button" style="background:red; cursor:pointer">click me</button>
 
 📙 **BOOK** 📙 <a href="#">torna su</a>
 --------------------------------------------------------------
