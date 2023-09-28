@@ -1,4 +1,4 @@
-# ShelterBooks_CapstoneProject
+# ShelterBooks_CapstoneProject v1.0
 Back-end progetto finale Capstone del percorso con EPICODE School 2023 Full-Stack Course 🚀
 
 Link alla repository front-end : https://github.com/EazyM93/ShelterBooks_Frontend/tree/main
