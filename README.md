@@ -175,7 +175,9 @@ Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://l
   Rimuove un libro con l'id inviato dal carrello dello user corrente
 
 - 🟧 "/clearCart" (POST)
-  Svuota il carrello da tutti i libri, li aggiunge alla lista dei libri comprati dall’utente e crea l'ordine appena pagato
+  Svuota il carrello da tutti i libri.
+  Li aggiunge alla lista dei libri comprati dall’utente.
+  Crea l'ordine appena pagato
 ```
 <a href="#">TORNA SU</a>
 
@@ -195,7 +197,8 @@ Gli ordini verranno generati all'acquisto dei prodotti, al fine di essere visual
 L'endpoint degli ordini sarà http://localhost:3001/orders
 
 - 🟩 "/createOrder" (GET)
-  Creazione di un ordine manuale. Il programma è impostato per creare in autonomia l’ordine durante il “clear” del carrello contestualmente all’acquisto dei libri e la finalizzazione del pagamento
+  Creazione di un ordine manuale.
+  Il programma è impostato per creare in autonomia l’ordine durante il “clear” del carrello dopo la finalizzazione del pagamento
 
 - 🟩 "/idOrder/{idOrder}" (GET)
   Restituisce un ordine tramite id
