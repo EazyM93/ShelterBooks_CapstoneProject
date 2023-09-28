@@ -42,7 +42,8 @@ Contestualmente alla creazione dell'utente verrà generato un carrello ad esso c
 L' utente sarà gestito con authorization all'endpoint http://localhost:3001/auth :
 
 - 🟧 "/register" (POST)
-  L'utente verrà registrato tramite il service dello User.Qui verranno creati carrello e indirizzo.
+  L'utente verrà registrato tramite il service dello User.
+  Qui verranno creati carrello e indirizzo.
 
 - 🟧 "/login" (POST)
   L'utente eseguirà il login con generazione del bearer token tramite autenticazione JWT.
@@ -163,7 +164,8 @@ Ogni utente avrà il suo personale carrello con ID univoco, questo permette di m
 
 La collezione dei libri nel carrello è sottoforma di MAP, dove l'oggetto Book funge da chiave per un numero intero che funge da quantità di copie nel carrello. Questo permette di non avere errori nell'associare il libro corretto alla quantità che si vuole acquistare, il tutto senza creare un proprità in più all'interno della classe Book.
 ```
-Le funzioni del CART saranno tutte accessibili con il seguente endpoint http://localhost:3001/carts
+Le funzioni del CART saranno tutte accessibili con il seguente endpoint
+http://localhost:3001/carts
 
 - 🟩 "/currentCart" (GET)
   Restituisce il carrello dello user corrente
@@ -198,7 +200,7 @@ L'endpoint degli ordini sarà http://localhost:3001/orders
 
 - 🟩 "/createOrder" (GET)
   Creazione di un ordine manuale.
-  Dopo la finalizzazione del pagamento, crea in autonomia l’ordine durante il “clear” del carrello.
+  Dopo la finalizzazione del pagamento, crea in l’ordine durante il “clear” del carrello.
 
 - 🟩 "/idOrder/{idOrder}" (GET)
   Restituisce un ordine tramite id
