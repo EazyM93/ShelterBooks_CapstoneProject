@@ -19,10 +19,8 @@ Le entità presenti sono:
 - Address 📫
 
 👤 **USER** 👤
-
-<a href="#">torna su</a>
 ---------------------------------------------------------------
-
+<a href="#">torna su</a>
 L'utente è il protagonista dell'applicativo e sarà così definito nei suoi attributi:
 
 - idUser ( autogenerato come UUID )
