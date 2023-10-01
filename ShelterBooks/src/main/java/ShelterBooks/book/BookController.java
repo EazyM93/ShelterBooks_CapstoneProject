@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import ShelterBooks.user.User;
+import ShelterBooks.user.UserRepository;
+import ShelterBooks.user.UserService;
+
 
 @RestController
 @RequestMapping("/books")
@@ -25,6 +29,12 @@ public class BookController {
 
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	//------------------------------------------------------------------create book
 	@PostMapping
@@ -94,6 +104,20 @@ public class BookController {
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteBook(@PathVariable UUID idBook) {
+		
+		for(User user : userService.getUsers()) {
+			
+			List<Book> actualList = user.getWishlist();
+			
+			for(Book book : actualList) {
+				if(book.getIdBook().equals(idBook)) {
+					user.getWishlist().remove(book);
+					userRepository.save(user);
+				}
+					
+			}
+		}
+		
 		bookService.deleteBook(idBook);
 	}
 }
